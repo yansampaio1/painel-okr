@@ -1,0 +1,174 @@
+{
+  "objetivos": [
+    "Materiais e produção alinhada às trilhas e prazos",
+    "Implementar uma solução de formação customizada, com foco no aprimoramento de competências de gestão escolar a 8.000 profissionais de rede pública estadual de São Paulo.",
+    "Satisfação, comunicação e clima"
+  ],
+  "indicadores": [
+    {
+      "id": "materiais-alinhados-trilhas",
+      "objetivo": "Materiais e produção alinhada às trilhas e prazos",
+      "indicador": "Materiais produzidos alinhados às três trilhas formativas",
+      "tipo": "KR - Resultado Chave",
+      "forma_coleta": "Relatório",
+      "temporalidade": "Semestral",
+      "meta_geral": 100,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 1
+    },
+    {
+      "id": "materiais-no-prazo",
+      "objetivo": "Materiais e produção alinhada às trilhas e prazos",
+      "indicador": "Materiais produzidos no prazo acordado com a SEDUC",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Relatório",
+      "temporalidade": "Semestral",
+      "meta_geral": 90,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 1
+    },
+    {
+      "id": "materiais-validados-v3",
+      "objetivo": "Materiais e produção alinhada às trilhas e prazos",
+      "indicador": "Materiais validados pelo cliente até a versão 3",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Relatório",
+      "temporalidade": "Semestral",
+      "meta_geral": 90,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 1
+    },
+    {
+      "id": "encontros-sincronos-videos",
+      "objetivo": "Materiais e produção alinhada às trilhas e prazos",
+      "indicador": "Encontros síncronos realizados e vídeos recebidos corrigidos",
+      "tipo": "KR - Resultado Chave",
+      "forma_coleta": "Relatório",
+      "temporalidade": "Mensal",
+      "meta_geral": 3840,
+      "unidade": "Quantidade",
+      "quantidade_medicoes": 8
+    },
+    {
+      "id": "formadores-sala-teams",
+      "objetivo": "Materiais e produção alinhada às trilhas e prazos",
+      "indicador": "Formadores e orientadores na sala do teams 15 minutos antes do início do encontro",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Relatório",
+      "temporalidade": "Mensal",
+      "meta_geral": 100,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 8
+    },
+    {
+      "id": "monitoramento-amostral",
+      "objetivo": "Materiais e produção alinhada às trilhas e prazos",
+      "indicador": "conforme orientações e regras, monitorado de forma amostral",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Relatório",
+      "temporalidade": "Mensal",
+      "meta_geral": 100,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 8
+    },
+    {
+      "id": "videos-corrigidos-prazo",
+      "objetivo": "Implementar uma solução de formação customizada, com foco no aprimoramento de competências de gestão escolar a 8.000 profissionais de rede pública estadual de São Paulo.",
+      "indicador": "Videos recebidos corrigidos no prazo acordado no cronograma",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Relatório",
+      "temporalidade": "Mensal",
+      "meta_geral": 100,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 8
+    },
+    {
+      "id": "cursistas-aprovados-modulo",
+      "objetivo": "Implementar uma solução de formação customizada, com foco no aprimoramento de competências de gestão escolar a 8.000 profissionais de rede pública estadual de São Paulo.",
+      "indicador": "Cursistas aprovados em cada módulo",
+      "tipo": "KR - Resultado Chave",
+      "forma_coleta": "Formulário",
+      "temporalidade": "Mensal",
+      "meta_geral": 70,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 9
+    },
+    {
+      "id": "cursistas-tarefas-notificados",
+      "objetivo": "Implementar uma solução de formação customizada, com foco no aprimoramento de competências de gestão escolar a 8.000 profissionais de rede pública estadual de São Paulo.",
+      "indicador": "Cursistas com tarefas a vencer notificados por meio da mensageria",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Formulário",
+      "temporalidade": "Mensal",
+      "meta_geral": 100,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 9
+    },
+    {
+      "id": "mensagens-respondidas-1-dia",
+      "objetivo": "Implementar uma solução de formação customizada, com foco no aprimoramento de competências de gestão escolar a 8.000 profissionais de rede pública estadual de São Paulo.",
+      "indicador": "Cursistas com mensagens respondidas em até 1 dia útil",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Formulário",
+      "temporalidade": "Mensal",
+      "meta_geral": 100,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 9
+    },
+    {
+      "id": "mensagens-15min-antes",
+      "objetivo": "Implementar uma solução de formação customizada, com foco no aprimoramento de competências de gestão escolar a 8.000 profissionais de rede pública estadual de São Paulo.",
+      "indicador": "Mensagens disparadas 15 minutos antes do início do encontro",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Formulário",
+      "temporalidade": "Mensal",
+      "meta_geral": 100,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 9
+    },
+    {
+      "id": "nivel-satisfacao-partes",
+      "objetivo": "Satisfação, comunicação e clima",
+      "indicador": "Nível de satisfação de partes interessadas",
+      "tipo": "KR - Resultado Chave",
+      "forma_coleta": "Formulário",
+      "temporalidade": "Bimestral",
+      "meta_geral": 80,
+      "unidade": "Percentual",
+      "quantidade_medicoes": 4
+    },
+    {
+      "id": "enviar-informativos-equipe",
+      "objetivo": "Satisfação, comunicação e clima",
+      "indicador": "Enviar informativos para a equipe",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Formulário",
+      "temporalidade": "Mensal",
+      "meta_geral": 12,
+      "unidade": "Quantidade",
+      "quantidade_medicoes": 10
+    },
+    {
+      "id": "encontros-presenciais-ano",
+      "objetivo": "Satisfação, comunicação e clima",
+      "indicador": "Realizar encontros presenciais no ano",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Formulário",
+      "temporalidade": "Semestral",
+      "meta_geral": 3,
+      "unidade": "Quantidade",
+      "quantidade_medicoes": 3
+    },
+    {
+      "id": "pesquisa-clima",
+      "objetivo": "Satisfação, comunicação e clima",
+      "indicador": "Realizar pesquisa de clima",
+      "tipo": "KPI - Resultado de Processo",
+      "forma_coleta": "Formulário",
+      "temporalidade": "Semestral",
+      "meta_geral": 3,
+      "unidade": "Quantidade",
+      "quantidade_medicoes": 3
+    }
+  ]
+}

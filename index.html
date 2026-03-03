@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Monitoramento</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-principal: #2C1E4D;
+            --cor-secundaria: #F3951E;
+            --cor-destaque: #E52C42;
+            --cor-fundo: #f8f8f8;
+            --cor-card: #ffffff;
+            --cor-texto: #333333;
+            --cor-sombra: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .logo-header {
+            padding: 20px 0 40px 0;
+        }
+
+        .logo-header img {
+            height: 50px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            color: var(--cor-principal);
+            font-size: 3em;
+            margin-bottom: 10px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        header h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--cor-secundaria);
+            border-radius: 2px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .recursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .recurso-card {
+            background-color: var(--cor-card);
+            border-radius: 14px;
+            box-shadow: 0 6px 12px var(--cor-sombra);
+            text-decoration: none;
+            color: var(--cor-texto);
+            padding: 50px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 8px solid var(--cor-secundaria);
+        }
+
+        .recurso-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px var(--cor-sombra);
+        }
+
+        .recurso-card h2 {
+            color: var(--cor-principal);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .recurso-card p {
+            font-size: 1.05em;
+            margin: 0;
+        }
+
+        .footer-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            height: 80px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-header">
+            <img src="logo-escoladegestao.png" alt="Logo da Escola">
+        </div>
+
+        <header>
+            <h1>Painel de Monitoramento</h1>
+            <p>Escolha abaixo a escola para acessar os painéis, relatórios e ferramentas disponíveis.</p>
+        </header>
+
+        <section class="recursos-grid">
+            <a href="escola-gestao.html" class="recurso-card">
+                <h2>Escola de Gestão</h2>
+                <p>Ferramentas operacionais, relatórios e acompanhamento do curso.</p>
+            </a>
+
+            <a href="escola-dirigentes.html" class="recurso-card">
+                <h2>Escola de Dirigentes</h2>
+                <p>Painéis gerenciais e indicadores estratégicos do projeto.</p>
+            </a>
+
+            <a href="escola-supervisores.html" class="recurso-card">
+                <h2>Escola de Supervisores</h2>
+                <p>Projeto em estruturação. Conteúdos em breve.</p>
+            </a>
+        </section>
+    </div>
+
+    <img src="logo-fgv.png" alt="Logo da Fundação Getúlio Vargas" class="footer-logo">
+</body>
+</html>
