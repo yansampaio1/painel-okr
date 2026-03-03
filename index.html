@@ -334,7 +334,7 @@
             var origin = window.location.origin;
             if (origin && origin.indexOf('3001') !== -1) return origin;
             if (!origin || origin === 'null' || origin.indexOf('file://') === 0) return 'http://localhost:3001';
-            return 'http://localhost:3001';
+            return origin;
         }
         function fetchApi(path, options) {
             options = options || {};
