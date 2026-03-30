@@ -26,7 +26,13 @@ router.post("/login", (req, res) => {
   );
   res.json({
     token,
-    user: { id: user.id, username: user.username, nome: user.nome || user.username },
+    user: {
+      id: user.id,
+      username: user.username,
+      nome: user.nome || user.username,
+      role: user.role,
+      allowed_indicator_ids: user.allowed_indicator_ids,
+    },
   });
 });
 
@@ -50,7 +56,15 @@ router.get("/me", authMiddleware, (req, res) => {
   if (!user) {
     return res.status(401).json({ error: "Usuário não encontrado." });
   }
-  res.json({ user: { id: user.id, username: user.username, nome: user.nome || user.username } });
+  res.json({
+    user: {
+      id: user.id,
+      username: user.username,
+      nome: user.nome || user.username,
+      role: user.role,
+      allowed_indicator_ids: user.allowed_indicator_ids,
+    },
+  });
 });
 
 module.exports = { router, authMiddleware };

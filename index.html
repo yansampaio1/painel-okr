@@ -325,9 +325,18 @@
 (function () {
         // Em produção, se a API estiver em outro host, defina: window.API_BASE = 'https://sua-api.exemplo.com';
         var token = localStorage.getItem('okr_token');
+        var currentUser = null;
         var metasData = { objetivos: [], indicadores: [] };
         var valoresData = {};
         var somenteLeitura = true;
+
+        function canEditIndicator(idIndicador) {
+            if (!currentUser) return false;
+            if (currentUser.role === 'admin') return true;
+            var allowed = currentUser.allowed_indicator_ids;
+            if (!allowed || !allowed.length) return false;
+            return allowed.indexOf(idIndicador) !== -1;
+        }
 
         function getApiBase() {
             if (typeof window.API_BASE === 'string' && window.API_BASE) return window.API_BASE.replace(/\/$/, '');
@@ -378,9 +387,15 @@
             token = t;
             if (t) localStorage.setItem('okr_token', t); else localStorage.removeItem('okr_token');
         }
+        function setCurrentUser(u) {
+            currentUser = u || null;
+            if (currentUser && currentUser.role === undefined) currentUser.role = 'admin';
+            if (currentUser && !currentUser.allowed_indicator_ids) currentUser.allowed_indicator_ids = [];
+        }
 
         function checkAuth() {
             if (!token) {
+                setCurrentUser(null);
                 showVisualizacaoGeral(true);
                 refreshDadosVisualizacao();
                 return;
@@ -389,6 +404,7 @@
                 .then(function (r) {
                     if (r.ok) {
                         r.json().then(function (d) {
+                            setCurrentUser(d.user);
                             document.getElementById('user-name').textContent = (d.user && (d.user.nome || d.user.username)) || 'Usuário';
                             showDashboard();
                             loadMetas();
@@ -396,12 +412,14 @@
                         });
                     } else {
                         setToken(null);
+                        setCurrentUser(null);
                         showVisualizacaoGeral(true);
                         loadValores();
                     }
                 })
                 .catch(function () {
                     setToken(null);
+                    setCurrentUser(null);
                     showVisualizacaoGeral(true);
                     loadValores();
                 });
@@ -512,7 +530,7 @@
                     var alcanceStr = valorAtual != null ? (valorAtual + (isPct ? ' %' : '') + ' (' + pctAlcancado.toFixed(0) + '% alcançado)') : 'Nenhum valor informado';
                     var progressHtml = '<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:' + pctAlcancado + '%"></div></div>';
                     var inputHtml = '';
-                    if (!readOnly) {
+                    if (!readOnly && canEditIndicator(ind.id)) {
                         inputHtml = '<div class="input-row">' +
                             '<input type="number" min="0" step="' + (isPct ? '0.01' : '1') + '" id="input-' + escapeAttr(ind.id) + '" placeholder="Valor" value="' + (valorAtual != null ? escapeAttr(String(valorAtual)) : '') + '">' +
                             '<button type="button" class="btn-salvar" data-id="' + escapeAttr(ind.id) + '">Salvar</button></div>';
@@ -581,6 +599,7 @@
                 .then(function (result) {
                     if (result.ok && result.data.token) {
                         setToken(result.data.token);
+                        setCurrentUser(result.data.user);
                         document.getElementById('user-name').textContent = (result.data.user && (result.data.user.nome || result.data.user.username)) || user;
                         showDashboard();
                         loadMetas();
@@ -593,6 +612,7 @@
         });
         document.getElementById('btn-sair').addEventListener('click', function () {
             setToken(null);
+            setCurrentUser(null);
             showVisualizacaoGeral(true);
             refreshDadosVisualizacao();
         });
