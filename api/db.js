@@ -9,10 +9,21 @@ function ensureDataDir() {
   if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 }
 
+function normalizeUser(u) {
+  const role = u && typeof u.role === "string" && u.role ? u.role : "admin";
+  const allowed = Array.isArray(u && u.allowed_indicator_ids)
+    ? u.allowed_indicator_ids
+        .filter((x) => typeof x === "string" && x.trim())
+        .map((x) => x.trim())
+    : [];
+  return { ...u, role, allowed_indicator_ids: allowed };
+}
+
 function readUsers() {
   ensureDataDir();
   if (!fs.existsSync(usersPath)) return [];
-  return JSON.parse(fs.readFileSync(usersPath, "utf-8"));
+  const raw = JSON.parse(fs.readFileSync(usersPath, "utf-8"));
+  return (Array.isArray(raw) ? raw : []).map(normalizeUser);
 }
 
 function writeUsers(users) {
@@ -32,6 +43,9 @@ function writeValores(valores) {
 }
 
 const db = {
+  listUsers() {
+    return readUsers();
+  },
   getUserByUsername(username) {
     const users = readUsers();
     return users.find((u) => u.username === username) || null;
@@ -48,11 +62,25 @@ const db = {
       username,
       password_hash,
       nome: nome || username,
+      role: "admin",
+      allowed_indicator_ids: [],
       created_at: new Date().toISOString(),
     };
     users.push(newUser);
     writeUsers(users);
-    return newUser;
+    return normalizeUser(newUser);
+  },
+  updateUserAccess(username, access) {
+    const users = readUsers();
+    const u = users.find((x) => x.username === username);
+    if (!u) return null;
+    if (access && typeof access === "object") {
+      if (typeof access.role === "string" && access.role) u.role = access.role;
+      if (Array.isArray(access.allowed_indicator_ids)) u.allowed_indicator_ids = access.allowed_indicator_ids;
+      if (typeof access.nome === "string" && access.nome) u.nome = access.nome;
+    }
+    writeUsers(users);
+    return normalizeUser(u);
   },
   updateUserPassword(username, password_hash) {
     const users = readUsers();
@@ -60,7 +88,7 @@ const db = {
     if (!u) return null;
     u.password_hash = password_hash;
     writeUsers(users);
-    return u;
+    return normalizeUser(u);
   },
   getValores() {
     return readValores();
