@@ -29,6 +29,26 @@ app.get("/api/metas", (req, res) => {
   res.json(data);
 });
 
+// Bootstrap de admin via variáveis de ambiente (útil em produção).
+// Defina ADMIN_BOOTSTRAP_PASSWORD para criar/atualizar o admin ao subir.
+// Opcional: ADMIN_BOOTSTRAP_USERNAME (default: "admin")
+try {
+  const bootstrapPassword = process.env.ADMIN_BOOTSTRAP_PASSWORD;
+  if (bootstrapPassword) {
+    const bootstrapUsername = (process.env.ADMIN_BOOTSTRAP_USERNAME || "admin").trim();
+    const hash = bcrypt.hashSync(String(bootstrapPassword), 10);
+    if (db.getUserByUsername(bootstrapUsername)) {
+      db.updateUserPassword(bootstrapUsername, hash);
+    } else {
+      db.addUser(bootstrapUsername, hash, bootstrapUsername);
+    }
+    db.updateUserAccess(bootstrapUsername, { role: "admin", allowed_indicator_ids: [] });
+    console.log(`[bootstrap] admin pronto: ${bootstrapUsername}`);
+  }
+} catch (e) {
+  console.warn("[bootstrap] falha ao preparar admin:", e && e.message ? e.message : e);
+}
+
 // `/setup-admin` foi desativado. Use a Admin API em `/api/admin/*`.
 app.all("/setup-admin", (req, res) => {
   res.status(410).json({ error: "Rota desativada. Use /api/admin/users." });
