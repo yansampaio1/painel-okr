@@ -101,7 +101,7 @@
       "meta_geral": 100,
       "unidade": "Percentual",
       "quantidade_medicoes": 8,
-      "valor": null
+      "valor": 100
     },
     {
       "id": "cursistas-aprovados-modulo",
