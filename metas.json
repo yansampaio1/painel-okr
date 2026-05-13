@@ -161,7 +161,7 @@
       "meta_geral": 80,
       "unidade": "Percentual",
       "quantidade_medicoes": 4,
-      "valor": null
+      "valor": 100
     },
     {
       "id": "enviar-informativos-equipe",
