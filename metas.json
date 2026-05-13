@@ -42,16 +42,29 @@
       "valor": null
     },
     {
-      "id": "encontros-sincronos-videos",
+      "id": "encontros-sincronos",
       "objetivo": "Materiais e produção alinhada às trilhas e prazos",
-      "indicador": "Encontros síncronos realizados e vídeos recebidos corrigidos",
+      "indicador": "Encontros síncronos realizados",
+      "tipo": "KR - Resultado Chave",
+      "forma_coleta": "Relatório",
+      "temporalidade": "Mensal",
+      "meta_geral": 156,
+      "unidade": "Quantidade",
+      "quantidade_medicoes": 8,
+      "valor": 156
+    },
+    {
+      "id": "videos-recebidos-corrigidos",
+      "objetivo": "Materiais e produção alinhada às trilhas e prazos",
+      "indicador": "Vídeos recebidos corrigidos",
       "tipo": "KR - Resultado Chave",
       "forma_coleta": "Relatório",
       "temporalidade": "Mensal",
       "meta_geral": 3840,
       "unidade": "Quantidade",
       "quantidade_medicoes": 8,
-      "valor": null
+      "valor": 6123,
+      "link": "https://acompanhamento-video.netlify.app/"
     },
     {
       "id": "formadores-sala-teams",

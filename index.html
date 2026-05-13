@@ -139,6 +139,22 @@
         }
         .badge-kr { background: var(--cor-principal); color: white; }
         .badge-kpi { background: #e0e0e0; color: #555; }
+        .indicador-card .btn-ver-dashboard {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            padding: 6px 12px;
+            background: var(--cor-secundaria);
+            color: #fff;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+            align-self: flex-start;
+        }
+        .indicador-card .btn-ver-dashboard:hover { opacity: 0.9; }
         .calendario-secao { margin-top: 48px; }
         .calendario-grid {
             display: grid;
@@ -237,12 +253,16 @@
                     }
                     var alcanceStr = valorAtual != null ? (valorAtual + (isPct ? ' %' : '') + ' (' + pctAlcancado.toFixed(0) + '% alcançado)') : 'Nenhum valor informado';
                     var progressHtml = '<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:' + pctAlcancado + '%"></div></div>';
+                    var linkHtml = '';
+                    if (ind.link) {
+                        linkHtml = '<a class="btn-ver-dashboard" href="' + escapeAttr(ind.link) + '" target="_blank" rel="noopener noreferrer">Ver dashboard <span aria-hidden="true">↗</span></a>';
+                    }
                     html += '<div class="indicador-card ' + tipoClass + '">' +
                         '<span class="badge ' + badgeClass + '">' + escapeHtml(badgeText) + '</span>' +
                         '<div class="indicador-nome">' + escapeHtml(ind.indicador) + '</div>' +
                         '<div class="meta-numero">Meta: ' + escapeHtml(metaStr) + (ind.unidade && !isPct ? '<span class="unidade"> ' + escapeHtml(ind.unidade) + '</span>' : '') + '</div>' +
                         '<div class="alcance-texto">' + escapeHtml(alcanceStr) + '</div>' +
-                        progressHtml + '</div>';
+                        progressHtml + linkHtml + '</div>';
                 });
                 html += '</div></div>';
             });
@@ -273,6 +293,10 @@
             var div = document.createElement('div');
             div.textContent = s;
             return div.innerHTML;
+        }
+        function escapeAttr(s) {
+            if (s == null) return '';
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
 
         document.getElementById('btn-atualizar-dados').addEventListener('click', loadDados);
