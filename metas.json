@@ -14,7 +14,8 @@
       "temporalidade": "Semestral",
       "meta_geral": 100,
       "unidade": "Percentual",
-      "quantidade_medicoes": 1
+      "quantidade_medicoes": 1,
+      "valor": null
     },
     {
       "id": "materiais-no-prazo",
@@ -25,7 +26,8 @@
       "temporalidade": "Semestral",
       "meta_geral": 90,
       "unidade": "Percentual",
-      "quantidade_medicoes": 1
+      "quantidade_medicoes": 1,
+      "valor": 91
     },
     {
       "id": "materiais-validados-v3",
@@ -36,7 +38,8 @@
       "temporalidade": "Semestral",
       "meta_geral": 90,
       "unidade": "Percentual",
-      "quantidade_medicoes": 1
+      "quantidade_medicoes": 1,
+      "valor": null
     },
     {
       "id": "encontros-sincronos-videos",
@@ -47,7 +50,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 3840,
       "unidade": "Quantidade",
-      "quantidade_medicoes": 8
+      "quantidade_medicoes": 8,
+      "valor": null
     },
     {
       "id": "formadores-sala-teams",
@@ -58,7 +62,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 100,
       "unidade": "Percentual",
-      "quantidade_medicoes": 8
+      "quantidade_medicoes": 8,
+      "valor": 100
     },
     {
       "id": "monitoramento-amostral",
@@ -69,7 +74,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 100,
       "unidade": "Percentual",
-      "quantidade_medicoes": 8
+      "quantidade_medicoes": 8,
+      "valor": null
     },
     {
       "id": "videos-corrigidos-prazo",
@@ -80,7 +86,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 100,
       "unidade": "Percentual",
-      "quantidade_medicoes": 8
+      "quantidade_medicoes": 8,
+      "valor": null
     },
     {
       "id": "cursistas-aprovados-modulo",
@@ -91,7 +98,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 70,
       "unidade": "Percentual",
-      "quantidade_medicoes": 9
+      "quantidade_medicoes": 9,
+      "valor": null
     },
     {
       "id": "cursistas-tarefas-notificados",
@@ -102,7 +110,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 100,
       "unidade": "Percentual",
-      "quantidade_medicoes": 9
+      "quantidade_medicoes": 9,
+      "valor": null
     },
     {
       "id": "mensagens-respondidas-1-dia",
@@ -113,7 +122,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 100,
       "unidade": "Percentual",
-      "quantidade_medicoes": 9
+      "quantidade_medicoes": 9,
+      "valor": null
     },
     {
       "id": "mensagens-15min-antes",
@@ -124,7 +134,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 100,
       "unidade": "Percentual",
-      "quantidade_medicoes": 9
+      "quantidade_medicoes": 9,
+      "valor": null
     },
     {
       "id": "nivel-satisfacao-partes",
@@ -135,7 +146,8 @@
       "temporalidade": "Bimestral",
       "meta_geral": 80,
       "unidade": "Percentual",
-      "quantidade_medicoes": 4
+      "quantidade_medicoes": 4,
+      "valor": null
     },
     {
       "id": "enviar-informativos-equipe",
@@ -146,7 +158,8 @@
       "temporalidade": "Mensal",
       "meta_geral": 12,
       "unidade": "Quantidade",
-      "quantidade_medicoes": 10
+      "quantidade_medicoes": 10,
+      "valor": null
     },
     {
       "id": "encontros-presenciais-ano",
@@ -157,7 +170,8 @@
       "temporalidade": "Semestral",
       "meta_geral": 3,
       "unidade": "Quantidade",
-      "quantidade_medicoes": 3
+      "quantidade_medicoes": 3,
+      "valor": null
     },
     {
       "id": "pesquisa-clima",
@@ -168,7 +182,8 @@
       "temporalidade": "Semestral",
       "meta_geral": 3,
       "unidade": "Quantidade",
-      "quantidade_medicoes": 3
+      "quantidade_medicoes": 3,
+      "valor": null
     }
   ]
 }

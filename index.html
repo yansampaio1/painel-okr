@@ -62,68 +62,7 @@
             margin: 36px 0 16px 0;
             font-size: 1.5em;
         }
-        /* Login */
-        #login-container {
-            max-width: 380px;
-            margin: 60px auto;
-            background: var(--cor-card);
-            padding: 40px;
-            border-radius: 14px;
-            box-shadow: 0 6px 20px var(--cor-sombra);
-            border-left: 6px solid var(--cor-secundaria);
-        }
-        #login-container h2 {
-            color: var(--cor-principal);
-            margin-top: 0;
-            margin-bottom: 24px;
-        }
-        #login-container label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            color: var(--cor-texto);
-        }
-        #login-container input {
-            width: 100%;
-            padding: 10px 12px;
-            margin-bottom: 16px;
-            border: 1px solid var(--cor-borda);
-            border-radius: 8px;
-            font-size: 1em;
-        }
-        #login-container button {
-            width: 100%;
-            padding: 12px;
-            background: var(--cor-principal);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            font-weight: 700;
-            cursor: pointer;
-        }
-        #login-container button:hover { opacity: 0.9; }
-        #login-erro {
-            color: var(--cor-destaque);
-            margin-bottom: 12px;
-            font-size: 0.95em;
-            display: none;
-        }
-        /* Visualização geral (somente leitura) */
-        #visualizacao-header { margin-bottom: 24px; }
-        #visualizacao-header .btn-entrar-atualizar {
-            padding: 10px 20px;
-            background: var(--cor-principal);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 1em;
-            margin-top: 16px;
-        }
-        #visualizacao-header .btn-entrar-atualizar:hover { opacity: 0.9; }
-        #visualizacao-header .btn-atualizar-dados {
+        .btn-atualizar-dados {
             padding: 10px 20px;
             background: transparent;
             color: var(--cor-principal);
@@ -133,32 +72,7 @@
             cursor: pointer;
             font-size: 1em;
         }
-        #visualizacao-header .btn-atualizar-dados:hover { background: rgba(44, 30, 77, 0.08); }
-        /* Dashboard */
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-        .user-info {
-            color: var(--cor-principal);
-            font-weight: 500;
-        }
-        .btn-sair {
-            padding: 8px 16px;
-            background: transparent;
-            color: var(--cor-destaque);
-            border: 1px solid var(--cor-destaque);
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 0.95em;
-        }
-        .btn-sair:hover { background: rgba(229, 44, 66, 0.08); }
+        .btn-atualizar-dados:hover { background: rgba(44, 30, 77, 0.08); }
         .objetivo-bloco { margin-bottom: 28px; }
         .objetivo-bloco h2 {
             color: var(--cor-principal);
@@ -215,32 +129,6 @@
             border-radius: 5px;
             transition: width 0.35s ease;
         }
-        .indicador-card .input-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-        .indicador-card .input-row input {
-            width: 90px;
-            padding: 6px 10px;
-            border: 1px solid var(--cor-borda);
-            border-radius: 6px;
-            font-size: 0.95em;
-        }
-        .indicador-card .input-row button {
-            padding: 6px 12px;
-            background: var(--cor-principal);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.9em;
-        }
-        .indicador-card .input-row button:hover { opacity: 0.9; }
-        .indicador-card .input-row button:disabled { opacity: 0.6; cursor: not-allowed; }
         .badge {
             display: inline-block;
             padding: 2px 8px;
@@ -268,48 +156,17 @@
         .calendario-card ul { margin: 0; padding-left: 20px; }
         .calendario-card li { margin-bottom: 6px; }
         .loading { text-align: center; padding: 40px; color: #666; }
-        .hidden { display: none !important; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="topo">
+        <div class="header-center">
             <h1>OKR / KPI</h1>
+            <p style="margin:0;">Metas do projeto e acompanhamento dos indicadores.</p>
         </div>
 
-        <div id="visualizacao-header" class="hidden">
-            <div class="header-center">
-                <h1>OKR / KPI</h1>
-                <p style="margin:0;">Visualização geral – apenas consulta dos resultados.</p>
-            </div>
-            <div style="text-align:center; display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-                <button type="button" class="btn-atualizar-dados" id="btn-atualizar-dados">Atualizar dados</button>
-                <button type="button" class="btn-entrar-atualizar" id="btn-entrar-atualizar">Entrar para atualizar dados</button>
-            </div>
-        </div>
-
-        <div id="login-container" class="hidden">
-            <h2>OKR / KPI</h2>
-            <p id="login-erro"></p>
-            <label for="login-user">Usuário</label>
-            <input type="text" id="login-user" autocomplete="username" placeholder="Usuário">
-            <label for="login-pass">Senha</label>
-            <input type="password" id="login-pass" autocomplete="current-password" placeholder="Senha">
-            <button type="button" id="btn-entrar">Entrar</button>
-            <p style="margin-top:16px; text-align:center;">
-                <button type="button" id="btn-voltar-visualizacao" style="background:transparent; border:none; color:var(--cor-principal); font-weight:700; cursor:pointer; text-decoration:underline;">Voltar à visualização geral</button>
-            </p>
-        </div>
-
-        <div id="dashboard-header" class="dashboard-header hidden">
-            <div class="header-center" style="margin-bottom:0; flex:1;">
-                <h1>OKR / KPI</h1>
-                <p style="margin:0;">Metas do projeto e acompanhamento dos indicadores.</p>
-            </div>
-            <div>
-                <span class="user-info" id="user-name"></span>
-                <button type="button" class="btn-sair" id="btn-sair">Sair e voltar à visualização geral</button>
-            </div>
+        <div style="text-align:center; margin-bottom: 24px;">
+            <button type="button" class="btn-atualizar-dados" id="btn-atualizar-dados">Atualizar dados</button>
         </div>
 
         <div id="metas-content">
@@ -324,19 +181,7 @@
     <script>
 (function () {
         // Em produção, se a API estiver em outro host, defina: window.API_BASE = 'https://sua-api.exemplo.com';
-        var token = localStorage.getItem('okr_token');
-        var currentUser = null;
         var metasData = { objetivos: [], indicadores: [] };
-        var valoresData = {};
-        var somenteLeitura = true;
-
-        function canEditIndicator(idIndicador) {
-            if (!currentUser) return false;
-            if (currentUser.role === 'admin') return true;
-            var allowed = currentUser.allowed_indicator_ids;
-            if (!allowed || !allowed.length) return false;
-            return allowed.indexOf(idIndicador) !== -1;
-        }
 
         function getApiBase() {
             if (typeof window.API_BASE === 'string' && window.API_BASE) return window.API_BASE.replace(/\/$/, '');
@@ -345,161 +190,38 @@
             if (!origin || origin === 'null' || origin.indexOf('file://') === 0) return 'http://localhost:3001';
             return origin;
         }
-        function fetchApi(path, options) {
-            options = options || {};
+        function fetchApi(path) {
             var url = path.indexOf('/') === 0 ? (getApiBase() + path) : (getApiBase() + '/' + path);
-            var headers = options.headers || {};
-            if (token) headers['Authorization'] = 'Bearer ' + token;
-            if (!headers['Content-Type']) headers['Content-Type'] = 'application/json';
-            return fetch(url, Object.assign({}, options, { headers: Object.assign({}, options.headers, headers) }));
+            return fetch(url, { headers: { 'Content-Type': 'application/json' } });
         }
 
-        function setVisible(id, show) {
-            var el = document.getElementById(id);
-            if (!el) return;
-            el.classList.toggle('hidden', !show);
-        }
-        function showVisualizacaoGeral(show) {
-            somenteLeitura = true;
-            setVisible('visualizacao-header', show);
-            setVisible('login-container', false);
-            setVisible('dashboard-header', false);
-            renderMetas(true);
-        }
-        function showLogin(show) {
-            setVisible('visualizacao-header', !show);
-            setVisible('login-container', show);
-            setVisible('dashboard-header', false);
-        }
-        function showDashboard() {
-            somenteLeitura = false;
-            setVisible('visualizacao-header', false);
-            setVisible('login-container', false);
-            setVisible('dashboard-header', true);
-            renderMetas(false);
-        }
-        function showError(msg) {
-            var el = document.getElementById('login-erro');
-            el.textContent = msg || '';
-            el.style.display = msg ? 'block' : 'none';
-        }
-        function setToken(t) {
-            token = t;
-            if (t) localStorage.setItem('okr_token', t); else localStorage.removeItem('okr_token');
-        }
-        function setCurrentUser(u) {
-            currentUser = u || null;
-            if (currentUser && currentUser.role === undefined) currentUser.role = 'admin';
-            if (currentUser && !currentUser.allowed_indicator_ids) currentUser.allowed_indicator_ids = [];
-        }
-
-        function checkAuth() {
-            if (!token) {
-                setCurrentUser(null);
-                showVisualizacaoGeral(true);
-                refreshDadosVisualizacao();
-                return;
-            }
-            fetchApi('/api/auth/me')
-                .then(function (r) {
-                    if (r.ok) {
-                        r.json().then(function (d) {
-                            setCurrentUser(d.user);
-                            document.getElementById('user-name').textContent = (d.user && (d.user.nome || d.user.username)) || 'Usuário';
-                            showDashboard();
-                            loadMetas();
-                            loadValores();
-                        });
-                    } else {
-                        setToken(null);
-                        setCurrentUser(null);
-                        showVisualizacaoGeral(true);
-                        loadValores();
-                    }
-                })
-                .catch(function () {
-                    setToken(null);
-                    setCurrentUser(null);
-                    showVisualizacaoGeral(true);
-                    loadValores();
-                });
-        }
-
-        function loadMetas() {
-            fetchApi('/api/metas')
-                .then(function (r) { return r.json(); })
-                .then(function (data) {
-                    metasData = data;
-                    renderMetas(somenteLeitura);
-                    renderCalendario();
-                })
-                .catch(function () {
-                    document.getElementById('metas-content').innerHTML = '<p class="loading">Erro ao carregar metas. Verifique se a API está rodando e se metas.json existe.</p>';
-                });
-        }
-        function loadValores() {
-            fetchApi('/api/valores')
-                .then(function (r) {
-                    if (r.status === 401) return {};
-                    return r.json();
-                })
-                .then(function (data) {
-                    valoresData = (data && data.valores) ? data.valores : {};
-                    renderMetas(somenteLeitura);
-                })
-                .catch(function () { valoresData = {}; renderMetas(somenteLeitura); });
-        }
-        function refreshDadosVisualizacao() {
+        function loadDados() {
             var container = document.getElementById('metas-content');
             container.innerHTML = '<div class="loading">Carregando dados…</div>';
             var cacheBust = '?t=' + Date.now();
-            Promise.all([
-                fetchApi('/api/metas' + cacheBust).then(function (r) { return r.ok ? r.json() : null; }),
-                fetchApi('/api/valores/public' + cacheBust).then(function (r) { return r.ok ? r.json() : null; })
-            ]).then(function (results) {
-                var metas = results[0];
-                if (!metas || !metas.indicadores || !metas.indicadores.length) {
-                    container.innerHTML = '<p class="loading">Erro ao carregar metas. Certifique-se de que o servidor está rodando (pasta api: <code>node server.js</code>) e que o arquivo <code>metas.json</code> existe na raiz do projeto. Abra a página em <a href="http://localhost:3001/" style="color: var(--cor-principal);">http://localhost:3001/</a>.</p>';
-                    return;
-                }
-                metasData = metas;
-                var rawValores = results[1];
-                if (rawValores && rawValores.valores && typeof rawValores.valores === 'object') {
-                    valoresData = rawValores.valores;
-                } else if (rawValores && typeof rawValores === 'object' && !Array.isArray(rawValores) && !rawValores.error) {
-                    valoresData = rawValores;
-                } else {
-                    valoresData = {};
-                }
-                somenteLeitura = true;
-                renderMetas(true);
-                renderCalendario();
-            }).catch(function (err) {
-                var msg = 'Erro ao carregar dados. ';
-                if (!window.location.origin || window.location.origin === 'null' || window.location.origin.indexOf('file://') === 0) {
-                    msg += 'Abra a página pelo servidor: <a href="http://localhost:3001/" style="color: var(--cor-principal);">http://localhost:3001/</a> (com o servidor rodando na pasta api: <code>node server.js</code>).';
-                } else {
-                    msg += 'Verifique se o servidor está rodando na pasta api (<code>node server.js</code>) e atualize a página.';
-                }
-                container.innerHTML = '<p class="loading">' + msg + '</p>';
-            });
-        }
-        function saveValor(idIndicador, valor) {
-            var payload = {}; payload[idIndicador] = valor === '' ? null : parseFloat(valor);
-            return fetchApi('/api/valores', {
-                method: 'PUT',
-                body: JSON.stringify({ valores: payload })
-            }).then(function (r) {
-                if (!r.ok) throw new Error('Falha ao salvar');
-                return r.json();
-            }).then(function (d) {
-                if (d.valores) valoresData = d.valores;
-                renderMetas();
-            });
+            fetchApi('/api/metas' + cacheBust)
+                .then(function (r) { return r.ok ? r.json() : null; })
+                .then(function (metas) {
+                    if (!metas || !metas.indicadores || !metas.indicadores.length) {
+                        container.innerHTML = '<p class="loading">Erro ao carregar metas. Verifique se a API está rodando e se <code>metas.json</code> existe.</p>';
+                        return;
+                    }
+                    metasData = metas;
+                    renderMetas();
+                    renderCalendario();
+                })
+                .catch(function () {
+                    var msg = 'Erro ao carregar dados. ';
+                    if (!window.location.origin || window.location.origin === 'null' || window.location.origin.indexOf('file://') === 0) {
+                        msg += 'Abra a página pelo servidor: <a href="http://localhost:3001/" style="color: var(--cor-principal);">http://localhost:3001/</a> (com o servidor rodando na pasta api: <code>node server.js</code>).';
+                    } else {
+                        msg += 'Verifique se o servidor está rodando e atualize a página.';
+                    }
+                    container.innerHTML = '<p class="loading">' + msg + '</p>';
+                });
         }
 
-        function renderMetas(readOnly) {
-            if (readOnly === undefined) readOnly = somenteLeitura;
+        function renderMetas() {
             var container = document.getElementById('metas-content');
             var objs = metasData.objetivos || [];
             var inds = metasData.indicadores || [];
@@ -513,8 +235,7 @@
                 if (!list.length) return;
                 html += '<div class="objetivo-bloco"><h2>' + escapeHtml(obj) + '</h2><div class="metas-grid">';
                 list.forEach(function (ind) {
-                    var v = valoresData[ind.id];
-                    var valorAtual = v && v.valor != null ? Number(v.valor) : null;
+                    var valorAtual = ind.valor != null ? Number(ind.valor) : null;
                     var meta = ind.meta_geral != null ? Number(ind.meta_geral) : null;
                     var unidade = (ind.unidade || '').toLowerCase();
                     var isPct = unidade.indexOf('percentual') !== -1 || unidade === '%';
@@ -529,34 +250,16 @@
                     }
                     var alcanceStr = valorAtual != null ? (valorAtual + (isPct ? ' %' : '') + ' (' + pctAlcancado.toFixed(0) + '% alcançado)') : 'Nenhum valor informado';
                     var progressHtml = '<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:' + pctAlcancado + '%"></div></div>';
-                    var inputHtml = '';
-                    if (!readOnly && canEditIndicator(ind.id)) {
-                        inputHtml = '<div class="input-row">' +
-                            '<input type="number" min="0" step="' + (isPct ? '0.01' : '1') + '" id="input-' + escapeAttr(ind.id) + '" placeholder="Valor" value="' + (valorAtual != null ? escapeAttr(String(valorAtual)) : '') + '">' +
-                            '<button type="button" class="btn-salvar" data-id="' + escapeAttr(ind.id) + '">Salvar</button></div>';
-                    } else {
-                        inputHtml = '<div class="alcance-texto">' + escapeHtml(alcanceStr) + '</div>';
-                    }
                     html += '<div class="indicador-card ' + tipoClass + '">' +
                         '<span class="badge ' + badgeClass + '">' + escapeHtml(badgeText) + '</span>' +
                         '<div class="indicador-nome">' + escapeHtml(ind.indicador) + '</div>' +
                         '<div class="meta-numero">Meta: ' + escapeHtml(metaStr) + (ind.unidade && !isPct ? '<span class="unidade"> ' + escapeHtml(ind.unidade) + '</span>' : '') + '</div>' +
-                        inputHtml + progressHtml + '</div>';
+                        '<div class="alcance-texto">' + escapeHtml(alcanceStr) + '</div>' +
+                        progressHtml + '</div>';
                 });
                 html += '</div></div>';
             });
             container.innerHTML = html;
-            if (!readOnly) {
-                container.querySelectorAll('.btn-salvar').forEach(function (btn) {
-                    btn.addEventListener('click', function () {
-                        var id = btn.getAttribute('data-id');
-                        var input = document.getElementById('input-' + id);
-                        var val = input ? input.value.trim() : '';
-                        btn.disabled = true;
-                        saveValor(id, val).then(function () { btn.disabled = false; }).catch(function () { btn.disabled = false; });
-                    });
-                });
-            }
         }
         function renderCalendario() {
             var inds = metasData.indicadores || [];
@@ -584,49 +287,9 @@
             div.textContent = s;
             return div.innerHTML;
         }
-        function escapeAttr(s) {
-            if (s == null) return '';
-            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        }
 
-        document.getElementById('btn-entrar').addEventListener('click', function () {
-            var user = document.getElementById('login-user').value.trim();
-            var pass = document.getElementById('login-pass').value;
-            showError('');
-            if (!user || !pass) { showError('Preencha usuário e senha.'); return; }
-            fetchApi('/api/auth/login', { method: 'POST', body: JSON.stringify({ username: user, password: pass }) })
-                .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); })
-                .then(function (result) {
-                    if (result.ok && result.data.token) {
-                        setToken(result.data.token);
-                        setCurrentUser(result.data.user);
-                        document.getElementById('user-name').textContent = (result.data.user && (result.data.user.nome || result.data.user.username)) || user;
-                        showDashboard();
-                        loadMetas();
-                        loadValores();
-                    } else {
-                        showError(result.data && result.data.error ? result.data.error : 'Usuário ou senha inválidos.');
-                    }
-                })
-                .catch(function () { showError('Erro de conexão. Verifique se a API está rodando.'); });
-        });
-        document.getElementById('btn-sair').addEventListener('click', function () {
-            setToken(null);
-            setCurrentUser(null);
-            showVisualizacaoGeral(true);
-            refreshDadosVisualizacao();
-        });
-        document.getElementById('btn-entrar-atualizar').addEventListener('click', function () {
-            showLogin(true);
-        });
-        document.getElementById('btn-voltar-visualizacao').addEventListener('click', function () {
-            showVisualizacaoGeral(true);
-        });
-        document.getElementById('btn-atualizar-dados').addEventListener('click', function () {
-            refreshDadosVisualizacao();
-        });
-
-        checkAuth();
+        document.getElementById('btn-atualizar-dados').addEventListener('click', loadDados);
+        loadDados();
     })();
     </script>
 </body>
