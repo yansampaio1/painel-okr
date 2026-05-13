@@ -15,7 +15,8 @@
       "meta_geral": 100,
       "unidade": "Percentual",
       "quantidade_medicoes": 1,
-      "valor": null
+      "valor": null,
+      "nota": "Aguardando medição"
     },
     {
       "id": "materiais-no-prazo",

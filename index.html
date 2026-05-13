@@ -105,6 +105,10 @@
             color: #555;
             margin-bottom: 6px;
         }
+        .indicador-card .alcance-texto.nota {
+            font-style: italic;
+            color: #888;
+        }
         .progress-bar-wrap {
             height: 10px;
             background: #e8e8e8;
@@ -237,7 +241,16 @@
                     if (meta != null && meta > 0 && valorAtual != null) {
                         pctAlcancado = Math.min(100, (valorAtual / meta) * 100);
                     }
-                    var alcanceStr = valorAtual != null ? (valorAtual + (isPct ? ' %' : '') + ' (' + pctAlcancado.toFixed(0) + '% alcançado)') : 'Nenhum valor informado';
+                    var alcanceStr;
+                    var alcanceClass = 'alcance-texto';
+                    if (valorAtual != null) {
+                        alcanceStr = valorAtual + (isPct ? ' %' : '') + ' (' + pctAlcancado.toFixed(0) + '% alcançado)';
+                    } else if (ind.nota) {
+                        alcanceStr = ind.nota;
+                        alcanceClass += ' nota';
+                    } else {
+                        alcanceStr = 'Nenhum valor informado';
+                    }
                     var progressHtml = '<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:' + pctAlcancado + '%"></div></div>';
                     var linkHtml = '';
                     if (ind.link) {
@@ -247,7 +260,7 @@
                         '<span class="badge ' + badgeClass + '">' + escapeHtml(badgeText) + '</span>' +
                         '<div class="indicador-nome">' + escapeHtml(ind.indicador) + '</div>' +
                         '<div class="meta-numero">Meta: ' + escapeHtml(metaStr) + (ind.unidade && !isPct ? '<span class="unidade"> ' + escapeHtml(ind.unidade) + '</span>' : '') + '</div>' +
-                        '<div class="alcance-texto">' + escapeHtml(alcanceStr) + '</div>' +
+                        '<div class="' + alcanceClass + '">' + escapeHtml(alcanceStr) + '</div>' +
                         progressHtml + linkHtml + '</div>';
                 });
                 html += '</div></div>';
