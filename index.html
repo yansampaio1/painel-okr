@@ -62,17 +62,6 @@
             margin: 36px 0 16px 0;
             font-size: 1.5em;
         }
-        .btn-atualizar-dados {
-            padding: 10px 20px;
-            background: transparent;
-            color: var(--cor-principal);
-            border: 1px solid var(--cor-principal);
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 1em;
-        }
-        .btn-atualizar-dados:hover { background: rgba(44, 30, 77, 0.08); }
         .objetivo-bloco { margin-bottom: 28px; }
         .objetivo-bloco h2 {
             color: var(--cor-principal);
@@ -179,10 +168,6 @@
         <div class="header-center">
             <h1>OKR / KPI</h1>
             <p style="margin:0;">Metas do projeto e acompanhamento dos indicadores.</p>
-        </div>
-
-        <div style="text-align:center; margin-bottom: 24px;">
-            <button type="button" class="btn-atualizar-dados" id="btn-atualizar-dados">Atualizar dados</button>
         </div>
 
         <div id="metas-content">
@@ -299,7 +284,6 @@
             return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
 
-        document.getElementById('btn-atualizar-dados').addEventListener('click', loadDados);
         loadDados();
     })();
     </script>
