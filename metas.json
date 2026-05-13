@@ -76,7 +76,8 @@
       "meta_geral": 100,
       "unidade": "Percentual",
       "quantidade_medicoes": 8,
-      "valor": 100
+      "valor": 90,
+      "link": "https://script.google.com/macros/s/AKfycbw-rGl42qTmD_Lsx7dEe1874sJlIEEJrG7oHnOVHoz8ghAq2dPNxrpNoiziXMa09jPbOA/exec"
     },
     {
       "id": "monitoramento-amostral",
