@@ -180,30 +180,17 @@
 
     <script>
 (function () {
-        // Em produção, se a API estiver em outro host, defina: window.API_BASE = 'https://sua-api.exemplo.com';
         var metasData = { objetivos: [], indicadores: [] };
-
-        function getApiBase() {
-            if (typeof window.API_BASE === 'string' && window.API_BASE) return window.API_BASE.replace(/\/$/, '');
-            var origin = window.location.origin;
-            if (origin && origin.indexOf('3001') !== -1) return origin;
-            if (!origin || origin === 'null' || origin.indexOf('file://') === 0) return 'http://localhost:3001';
-            return origin;
-        }
-        function fetchApi(path) {
-            var url = path.indexOf('/') === 0 ? (getApiBase() + path) : (getApiBase() + '/' + path);
-            return fetch(url, { headers: { 'Content-Type': 'application/json' } });
-        }
 
         function loadDados() {
             var container = document.getElementById('metas-content');
             container.innerHTML = '<div class="loading">Carregando dados…</div>';
             var cacheBust = '?t=' + Date.now();
-            fetchApi('/api/metas' + cacheBust)
+            fetch('./metas.json' + cacheBust, { cache: 'no-store' })
                 .then(function (r) { return r.ok ? r.json() : null; })
                 .then(function (metas) {
                     if (!metas || !metas.indicadores || !metas.indicadores.length) {
-                        container.innerHTML = '<p class="loading">Erro ao carregar metas. Verifique se a API está rodando e se <code>metas.json</code> existe.</p>';
+                        container.innerHTML = '<p class="loading">Erro ao carregar metas. Verifique se <code>metas.json</code> existe ao lado do <code>index.html</code>.</p>';
                         return;
                     }
                     metasData = metas;
@@ -211,11 +198,11 @@
                     renderCalendario();
                 })
                 .catch(function () {
-                    var msg = 'Erro ao carregar dados. ';
+                    var msg = 'Erro ao carregar <code>metas.json</code>. ';
                     if (!window.location.origin || window.location.origin === 'null' || window.location.origin.indexOf('file://') === 0) {
-                        msg += 'Abra a página pelo servidor: <a href="http://localhost:3001/" style="color: var(--cor-principal);">http://localhost:3001/</a> (com o servidor rodando na pasta api: <code>node server.js</code>).';
+                        msg += 'Abra a página por um servidor web (ex.: publique no Netlify ou rode um servidor estático local).';
                     } else {
-                        msg += 'Verifique se o servidor está rodando e atualize a página.';
+                        msg += 'Verifique se o arquivo está publicado junto com o <code>index.html</code>.';
                     }
                     container.innerHTML = '<p class="loading">' + msg + '</p>';
                 });
