@@ -83,7 +83,7 @@
     {
       "id": "monitoramento-amostral",
       "objetivo": "Materiais e produção alinhada às trilhas e prazos",
-      "indicador": "conforme orientações e regras, monitorado de forma amostral",
+      "indicador": "Formadores utilizando o material do curso conforme orientações e regras, monitorado de forma amostral",
       "tipo": "KPI - Resultado de Processo",
       "forma_coleta": "Relatório",
       "temporalidade": "Mensal",
